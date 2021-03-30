@@ -1,15 +1,14 @@
-@import "../base/mixins";
 .footer {
-    background: var(--dark-200);
+    background: $dark-200;
     @include Arial-font;
-    color: var(--grey-100);
+    color: $grey-100;
     &__top {
         padding: 22px 0;
-        border-bottom: 1px solid var(--grey-300);
+        border-bottom: 1px solid $grey-300;
         li {
             transition: all 0.2s ease-in;
             &:hover {
-                color: var(--green-100);
+                color: $green-100;
             }
         }
         p {
@@ -18,12 +17,12 @@
             text-transform: uppercase;
             line-height: 25px;
         }
-        @include search(100%, 48px, 0, var(--green-100), 1, none);
+        @include search(100%, 48px, 0, $green-100, 1, none);
     }
     &__body {
         padding: 40px 0;
-        border-bottom: 1px solid var(--grey-300);
-        @include logo(var(--grey-100));
+        border-bottom: 1px solid $grey-300;
+        @include logo($grey-100);
         .content,
         .phone,
         .email {
@@ -45,26 +44,27 @@
                     font-size: 10px;
                 }
                 &:first-child {
-                    color: var(--green-100);
+                    color: $green-100;
                     font-weight: bold;
                     font-size: 16px;
                 }
                 &:hover {
-                    color: var(--green-100);
+                    color: $green-100;
                 }
             }
         }
     }
     &__bottom {
         li {
+            cursor: pointer;
             transition: all 0.2s ease-in;
             &:hover {
-                color: var(--green-100);
+                color: $green-100;
             }
         }
         .copy-right {
-            background: var(--dark-100);
-            color: var(--white-100);
+            background: $dark-100;
+            color: $white-100;
         }
     }
 }

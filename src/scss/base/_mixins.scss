@@ -60,7 +60,7 @@ $desktop-width: 992;
     }
 }
 
-@mixin link($color: var(--white-100), $colorhover: var(--white-100)) {
+@mixin link($color: $white-100, $colorhover: $white-100) {
     .link {
         cursor: pointer;
         color: $color;
@@ -74,8 +74,8 @@ $desktop-width: 992;
 @mixin list(
     $w: 40px,
     $h: 32px,
-    $bhover: var(--dark-300),
-    $ihover: var(--grey-300)
+    $bhover: $dark-300,
+    $ihover: $grey-300
 ) {
     .list {
         @include flex("", "", center);
@@ -100,9 +100,9 @@ $desktop-width: 992;
     $width: 200px,
     $height: 40px,
     $boder-radius: 0,
-    $bg-btn: var(--white-100),
+    $bg-btn: $white-100,
     $zindex-search: 1,
-    $bg-after: var(--white-400)
+    $bg-after: $white-400
 ) {
     .search-box {
         position: relative;
@@ -141,14 +141,14 @@ $desktop-width: 992;
             @include absolute(100%, "", "", 0);
             visibility: hidden;
             z-index: 100;
-            color: var(--white-100);
+            color: $white-100;
         }
         &__item {
             padding: 18px;
             width: 200%;
-            background: var(--green-100);
+            background: $green-100;
             &:hover {
-                background: var(--green-300);
+                background: $green-300;
             }
         }
         &:hover {

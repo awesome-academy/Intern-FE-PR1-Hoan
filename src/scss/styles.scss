@@ -1,14 +1,17 @@
-@import './base/global';
-@import './base/mixins';
-@import './base/placeholders';
-@import './base/reset';
 @import './base/variables';
+@import './base/mixins';
+@import './base/reset';
+@import './base/global';
+@import './base/placeholders';
 
+@import './components/breadcrumb';
 @import './components/carousel';
 @import './components/product';
+@import './components/input';
 @import './components/title';
 
 @import './layouts/footer';
 @import './layouts/header';
 
 @import './pages/index';
+@import './pages/login';
