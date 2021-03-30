@@ -1,0 +1,75 @@
+.products-page {
+    &__sort {
+        @include list-wrapper($grey-100, $green-100) {
+            .list-sort-item {
+                text-transform: none;
+                border-bottom: 1px solid $white-250;
+                &:first-child {
+                    border: none;
+                }
+                &.active {
+                    color: $green-100;
+                }
+            }
+            .sort-color {
+                cursor: pointer;
+                text-transform: none;
+                &:not(:first-child) {
+                    @include flex("", "", "");
+                }
+                .color {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 999px;
+                    margin-right: 8px;
+                }
+                .green {
+                    background: $green-50;
+                }
+                .red-orange {
+                    background: $orange-100;
+                }
+                .purple {
+                    background: $purple-100;
+                }
+                .blue {
+                    background: $blue-100;
+                }
+                .yellow {
+                    background: $yellow-200;
+                }
+                .pink {
+                    background: $pink-100;
+                }
+            }
+        }
+    }
+    .sort-bar {
+        font-size: .875rem;
+        .list {
+            .item {
+                padding: 0 1rem;
+                i {
+                    cursor: pointer;
+                    position: relative;
+                    font-size: 1.5rem;
+                    color: $grey-100;
+                    transition: all 0.2s ease-in;
+                    &:hover {
+                        color: $green-100;
+                    }
+                }
+            }
+        }
+        select {
+            cursor: pointer;
+            font-size: .75rem;
+            padding: 8px;
+            border: 1px solid $white-200;
+            outline: $grey-100;
+            color: $grey-100;
+        }
+    }
+    .products {
+    }
+}

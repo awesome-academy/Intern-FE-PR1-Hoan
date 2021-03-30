@@ -58,3 +58,20 @@ mixin carouselProducts(title, products, productsInPage, size)
 				button(class=`carousel-control-next crl-btn-products-next center`, data-bs-target=`#carouselIndicators${id}`, data-bs-slide="next")
 					span(style="color:black") 
 						+icon('fas fa-angle-right')
+mixin carouselProductsIndicatorsTab(ids)
+	- var idCarousel = Math.round(Math.random()*10000)
+	.carousel
+		.carousel.slide(data-bs-ride=`carousel`, id=`carouselIndicators${idCarousel}`, data-bs-interval="false")
+			.carousel-indicators.tab
+				each val, index in ids
+					if (index === 0)
+						div(id=val, data-bs-target=`#carouselIndicators${idCarousel}`, data-bs-slide-to=index, class="active", aria-current="true", aria-label=`Slide ${index + 1}`)
+							+icon('fas fa-th')
+					else
+						div(id=val, data-bs-target=`#carouselIndicators${idCarousel}`, data-bs-slide-to=index, aria-label=`Slide ${index + 1}`)
+							+icon('fas fa-th-list')
+			.carousel-inner
+				.carousel-item.active
+					block itemActive
+				.carousel-item
+					block item

@@ -52,7 +52,7 @@ $desktop-width: 992;
             bottom: 0;
             left: 2%;
             color: $color;
-            font-size: 100%;
+            font-size: 1rem;
             letter-spacing: 2px;
             line-height: 26px;
             font-weight: 300;
@@ -108,7 +108,7 @@ $desktop-width: 992;
             width: 100%;
             border-radius: $boder-radius;
             padding-left: 16px;
-            font-size: 12px;
+            font-size: .75rem;
         }
         .btn-search {
             @include absolute(0, 0, "", "");
@@ -166,16 +166,16 @@ $desktop-width: 992;
             color: $color;
             padding: 8px 0;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: .75rem;
             transition: all 0.2s ease-in;
             line-height: 20px;
             i {
-                font-size: 10px;
+                font-size: .625rem;
             }
             &:first-child {
                 color: $green-100;
                 font-weight: bold;
-                font-size: 16px;
+                font-size: 1rem;
                 &:hover {
                     color: $green-100;
                 }
