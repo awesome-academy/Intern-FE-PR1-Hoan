@@ -9,8 +9,9 @@
 @import './components/product';
 @import './components/input';
 @import './components/title';
-@import './components/sort';
 @import './components/new';
+@import './components/sort';
+@import './components/comment';
 
 @import './layouts/footer';
 @import './layouts/header';
@@ -21,3 +22,4 @@
 @import './pages/signin';
 @import './pages/products';
 @import './pages/details-product';
+@import './pages/details-new';

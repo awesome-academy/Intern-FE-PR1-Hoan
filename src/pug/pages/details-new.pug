@@ -1,10 +1,58 @@
 extends ../base/base
+include ../components/breadcrumb
+include ../components/sort
+include ../components/new
+include ../components/comment
 
 block pages
+	include ../data/data
+		- var breadCrumItems = data.detailsNewPage.breadCrumItems
+		- var comments = data.detailsNewPage.comments
+		- var sort = data.newsPage.sort
 	- 
 		var pages = {
 			title: "Cây dạ lam",
 			link: "/details-new.html"
 		}
 block layouts
-	section
+	section.details-new-page
+		.container
+			.px-3
+				+breadcrumb(breadCrumItems)
+			.row
+				.col-lg-3.px-3.py-3.pt-0.sort
+					each val, index in sort
+						+sort(val.sortMethod, index, val.sortStyle)
+				.col-lg-9
+					.details-new
+						+detailsNew()
+					.comment-new
+						- var i = comments.length
+						- comments.forEach(e => e.repComments.length ? i+=1 : i)
+						.title.p-0.m-0
+							p=`Bình luận (${i})`
+						each val,index in comments
+							.col-12.d-flex.justify-content-end.py-4.pb-0
+								+comment(val.avatar, val.name, val.content, val.date, val.repComments)
+						.write-comment.py-4#comment
+							.title.p-0
+								p Viết bình luận :
+							form.row
+								.col-lg-4
+									.wrapper.mx-lg-4.ml-0
+										label Họ và tên:
+										input(type="text")
+								.col-lg-4
+									.wrapper
+										label Email:
+										input(type="text")
+								.col-lg-4
+									.wrapper.mx-lg-4.mr-0
+										label Phone:
+										input(type="text")
+								.col-12
+									.wrapper.d-flex.flex-column
+										label Bình luận:
+										textarea(rows="4")
+								.col-12.d-flex.justify-content-end.py-3
+									button Gửi

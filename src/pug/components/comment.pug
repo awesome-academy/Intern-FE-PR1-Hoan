@@ -1,0 +1,18 @@
+mixin comment(avatar, name, content, date, repComments=[])
+	.comment
+		.comment__main.d-flex.row.h-auto.py-4
+			.avatar.col-2
+				.img
+					img(src=avatar)
+			.content-wrapper.col-10
+				.name.d-flex.justify-content-between.py-2
+					p=name
+					p Trả lời
+				.content.text-grey-100.py-2
+					p=content
+				.date.text-grey-100.py-2
+					p=date
+		if (repComments.length > 0)
+			each val in repComments
+				.comment__rep(class=`offset-${2}`)
+					+comment(val.avatar, val.name, val.content, val.date, val.repComments)

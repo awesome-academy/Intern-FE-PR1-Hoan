@@ -1,0 +1,33 @@
+.details-new-page {
+    .comment-new {
+        .title {
+            font-size: 1.125rem;
+            line-height: 1.25rem;
+            color: $grey-400;
+            font-weight: bold;
+        }
+		.write-comment {
+			border-top: 1px solid $white-250;
+			form {
+				.wrapper {
+					font-size: .75rem;
+					padding: 14px;
+					margin: 0 0 14px;
+					color: $grey-100;
+					border: 1px solid $white-250;
+					input, textarea {
+						color: $grey-100;
+						line-height: 1.125rem;
+					}
+				}
+				button {
+					font-size: .75rem;
+					padding: 12px 52px;
+					border-radius: 999px;
+					text-transform: uppercase;
+					@include btn-green;
+				}
+			}
+		}
+    }
+}
