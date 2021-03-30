@@ -2,8 +2,10 @@ include ../components/icon
 include ../components/logo
 
 include ../data/data
-- var icons = data.footer.icons
-- var listFooter = data.footer.listFooter
+- var topIcons = data.footer.topIcons
+- var widgetBody = data.footer.widgetBody
+- var widgetBottom = data.footer.widgetBottom
+- var widgetBottomIcons = data.footer.widgetBottomIcons
 
 footer
 	.footer
@@ -14,7 +16,7 @@ footer
 						p Kênh thông tin từ chúng tôi:
 						br 
 						ul.d-flex
-							each val in icons 
+							each val in topIcons 
 								li.icon-text
 									+icon(val)
 					.col-lg-3.d-lg-block.d-none.p-10-0
@@ -36,9 +38,9 @@ footer
 						.email.icon-text
 							+icon('far fa-envelope')(class="text-green-100")
 							span Email: info@dkt.com.vn
-					.col-lg-8.d-flex.justify-content-between.flex-wrap
-						each lists in listFooter
-							ul.list-wrapper.d-flex.flex-column.justify-content-between
+					.col-lg-8.d-flex.justify-content-start.flex-wrap
+						each lists in widgetBody
+							ul.list-wrapper.d-flex.flex-column.justify-content-between.w-md-100
 								each val, index in lists
 									if (index === 0 )
 										li.icon-text
@@ -47,3 +49,19 @@ footer
 										li.icon-text
 											+icon('fas fa-chevron-right')
 											span= val
+		.footer__bottom
+			.container
+				.row.gy-3.py-4
+					.col-lg-10
+						ul.d-flex.flex-md-row.flex-column.justify-content-lg-start.justify-content-center
+							each val in widgetBottom
+								li.p-2
+									p= val
+					.col-lg-2.center
+						ul.d-flex.justify-content-lg-end.justify-content-center
+							each val in widgetBottomIcons
+								li.px-1
+									+icon(val)
+			.copy-right.center.p-3
+				p Thiết kế bởi Bizweb 
+					+icon('far fa-copyright')

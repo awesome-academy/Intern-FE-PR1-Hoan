@@ -1,12 +1,17 @@
 @import "../base/mixins";
 .footer {
     background: var(--dark-200);
-    height: 500px;
     @include Arial-font;
     color: var(--grey-100);
     &__top {
         padding: 22px 0;
         border-bottom: 1px solid var(--grey-300);
+        li {
+            transition: all 0.2s ease-in;
+            &:hover {
+                color: var(--green-100);
+            }
+        }
         p {
             font-size: 14px;
             font-weight: bold;
@@ -17,6 +22,7 @@
     }
     &__body {
         padding: 40px 0;
+        border-bottom: 1px solid var(--grey-300);
         @include logo(var(--grey-100));
         .content,
         .phone,
@@ -25,15 +31,16 @@
             padding: 8px 64px 8px 0;
         }
         .list-wrapper {
-            padding: 12px;
+            padding-right: 48px;
             &:last-child {
                 padding-right: 0;
             }
             li {
-                padding: 8px;
+                padding: 8px 0;
                 text-transform: uppercase;
                 font-size: 12px;
                 transition: all 0.2s ease-in;
+                line-height: 20px;
                 i {
                     font-size: 10px;
                 }
@@ -46,6 +53,18 @@
                     color: var(--green-100);
                 }
             }
+        }
+    }
+    &__bottom {
+        li {
+            transition: all 0.2s ease-in;
+            &:hover {
+                color: var(--green-100);
+            }
+        }
+        .copy-right {
+            background: var(--dark-100);
+            color: var(--white-100);
         }
     }
 }
