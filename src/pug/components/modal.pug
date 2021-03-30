@@ -1,0 +1,23 @@
+include ../components/icon
+include ../components/input
+mixin modal()
+	.modal.fade.show#modal(tabindex="-1" style="display: block; padding-right: 16px;" aria-modal="true" role="dialog")
+		.modal-dialog.modal-lg.center
+			.modal-content
+				.modal-header
+					+icon('fas fa-times')(class="btn-modal-close" data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#modal")
+				.modal-body.py-5.px-4
+					.row
+						.col-md-5.py-2
+							.modal-body__img.center
+								img(src="../assets/images/popup.png")
+						.col-md-7.py-2
+							img(src="../assets/images/popup1.png")
+							p.title.p-0 Đăng ký email ngay hôm nay
+							.search-box
+								input(class='search text-grey-300', type='type', placeholder="Email của bạn ...")
+								button.btn-search.icon-text.p-0
+									+icon('fas fa-paper-plane')(class='text-white-100 p-0')
+							p.py-3 Đăng ký email ngay hôm nay để nhận các thông tin về sự kiện và các trương chình giảm giá từ chúng tôi
+							+input("Không hiển thị lại thông báo này nữa", "checkbox", "none")
+

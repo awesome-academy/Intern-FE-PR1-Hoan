@@ -19,7 +19,7 @@ block layouts
 		.container
 			.px-3
 				+breadcrumb(breadCrumItems)
-			.row.py-5.pt-0
+			.row
 				.col-lg-3.px-3.py-3.pt-0.sort
 					each val, index in sort
 						+sort(val.sortMethod, index, val.sortStyle)
