@@ -591,10 +591,19 @@
 		},
 		productsPage: {
 			breadCrumItems: [['Home', '/'], ['Danh sách sản phẩm', 'products.html']],
-			soft: [
-				["Danh mục sản phẩm", "Cây châu treo (10)", "Cây có hoa (5)", "Cây dây leo", "Cây để bàn", "Cây may mắn", "Cây trang trí", "Cây nội thất"],
-				["Tìm theo giá", "200.000 Đ - 400.000 Đ", "400.000 Đ - 600.000 Đ", "600.000 Đ - 800.000 Đ", "800.000 Đ - 1000.000 Đ", "1.000.000 Đ - 2.000.000 Đ"],
-				["Tìm theo màu", ["Xanh cây", "green"],["Đỏ cam", "red-orange"],["Tím", "purple"],["Xanh trời", "blue"],["Vàng", "yellow"],["Hồng", "pink"]]
+			sort: [
+				{
+					sortMethod: ["Danh mục sản phẩm", "Cây châu treo (10)", "Cây có hoa (5)", "Cây dây leo", "Cây để bàn", "Cây may mắn", "Cây trang trí", "Cây nội thất"],
+					sortStyle: "text"
+				},
+				{
+					sortMethod: ["Tìm theo giá", "200.000 Đ - 400.000 Đ", "400.000 Đ - 600.000 Đ", "600.000 Đ - 800.000 Đ", "800.000 Đ - 1000.000 Đ", "1.000.000 Đ - 2.000.000 Đ"],
+					sortStyle: "text"
+				},
+				{
+					sortMethod: ["Tìm theo màu", ["Xanh cây", "green"],["Đỏ cam", "red-orange"],["Tím", "purple"],["Xanh trời", "blue"],["Vàng", "yellow"],["Hồng", "pink"]],
+					sortStyle: "color"
+				}
 			]
 		},
 		detailsProductPage: {
@@ -605,10 +614,19 @@
 		},
 		newsPage: {
 			breadCrumItems: [['Home', '/'], ['Tin tức', '/news.html']],
-			soft: [
-				["Danh mục sản phẩm", "Cây châu treo (10)", "Cây có hoa (5)", "Cây dây leo", "Cây để bàn", "Cây may mắn", "Cây trang trí", "Cây nội thất"],
-				["Tìm theo giá", "200.000 Đ - 400.000 Đ", "400.000 Đ - 600.000 Đ", "600.000 Đ - 800.000 Đ", "800.000 Đ - 1000.000 Đ", "1.000.000 Đ - 2.000.000 Đ"],
-				["Tìm theo màu", ["Xanh cây", "green"],["Đỏ cam", "red-orange"],["Tím", "purple"],["Xanh trời", "blue"],["Vàng", "yellow"],["Hồng", "pink"]]
+			sort: [
+				{
+					sortMethod: ["Danh mục sản phẩm", "Cây châu treo (10)", "Cây có hoa (5)", "Cây dây leo", "Cây để bàn", "Cây may mắn", "Cây trang trí", "Cây nội thất"],
+					sortStyle: "text"
+				},
+				{
+					sortMethod: ["Tin tức nổi bật", "200.000 Đ - 400.000 Đ", "400.000 Đ - 600.000 Đ", "600.000 Đ - 800.000 Đ", "800.000 Đ - 1000.000 Đ", "1.000.000 Đ - 2.000.000 Đ"],
+					sortStyle: "image"
+				},
+				{
+					sortMethod: ["Blog tag", "Cây văn phòng", "Cây phát lộc", "Cây xanh", "Cây trang trí", "Cây", "Plants", "Sức khỏe", "Quà tặng", "Lưu niệm"],
+					sortStyle: "tag"
+				}
 			]
 		},
 		detailsNewPage: {

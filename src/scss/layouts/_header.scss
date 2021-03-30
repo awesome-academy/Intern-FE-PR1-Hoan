@@ -3,7 +3,6 @@
     &__top {
         height: 32px;
         background: $dark-300;
-
         @include list;
         li {
             border-left: 1px solid $grey-100;
@@ -11,7 +10,6 @@
                 border-right: 1px solid $grey-100;
             }
         }
-
         @include link($grey-300, $grey-100);
     }
     &__body {
@@ -28,15 +26,19 @@
         @include search(100%, 40px, 24px, $white-100);
         .cart {
             transform: translateY(350%);
+            text-decoration: none;
+            @include flex("", flex-end, flex-end);
             i {
                 font-size: 24px;
+            }
+            &:hover {
+                color: inherit;
             }
         }
     }
     .navbar {
         height: calc(226px - 177px);
         background: $green-100;
-
         .menu-wrapper {
             @include tablet {
                 position: absolute;
