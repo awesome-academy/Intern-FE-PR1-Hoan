@@ -17,7 +17,7 @@ block pages
 			link: "/products.html"
 		}
 block layouts
-	section.products-page
+	section.products-page#products-page
 		.container.py-5.pt-0
 			.px-3
 				+breadcrumb(breadCrumItems)
@@ -33,13 +33,13 @@ block layouts
 						ul.list.d-flex.py-2.justify-content-between
 							li.item
 								label.p-2.pt-0 Sắp xếp theo
-								select
-									option(value="name") Tên sản phẩm
-									option(value="price") Giá tiền
-									option(value="rate") Yêu thích
+								select#select_sort
+									option(value="0") Tên sản phẩm
+									option(value="1") Giá tiền
+									option(value="2") Yêu thích
 							li.item
 								label.p-2.pt-0 Hiển thị
-								select
+								select#select_amount
 									option(value="6") 6
 									option(value="9") 9
 									option(value="12") 12
@@ -51,17 +51,11 @@ block layouts
 							li.item.p-0(style="opacity: 0")
 								label(for="list")
 									+icon('fas fa-th-list')
-					.products
+					.products#products
 							+carouselProductsIndicatorsTab(["grid", "list"])
 								block itemActive
 									.row
-										each val in products
-											.col-md-4.col-sm-6.px-3.py-4.pt-0
-												+product(val.src, val.name, val.status, val.priceNew, val.priceOld, val.rate, val.size)
 								block item
 									.row
-										each val in products
-											.col-12.px-3.py-4.pt-0
-												+product(val.src, val.name, val.status, val.priceNew, val.priceOld, val.rate, val.size, "vertical")
 							.col-12.d-flex.justify-content-end.py-4
 								+pagination(3)

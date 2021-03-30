@@ -65,18 +65,17 @@ mixin carouselProductsIndicatorsTab(ids)
 			.carousel-indicators.tab
 				each val, index in ids
 					if (index === 0)
-						div(id=val, data-bs-target=`#carouselIndicators${idCarousel}`, data-bs-slide-to=index, class="active", aria-current="true", aria-label=`Slide ${index + 1}`)
+						a(id=val, onclick="changeViewGrid()" data-bs-target=`#carouselIndicators${idCarousel}`, data-bs-slide-to=index, aria-current="true", aria-label=`Slide ${index + 1}`)
 							+icon('fas fa-th')
 					else
-						div(id=val, data-bs-target=`#carouselIndicators${idCarousel}`, data-bs-slide-to=index, aria-label=`Slide ${index + 1}`)
+						a(id=val, onclick="changeViewList()" data-bs-target=`#carouselIndicators${idCarousel}`, data-bs-slide-to=index, aria-label=`Slide ${index + 1}`)
 							+icon('fas fa-th-list')
 			.carousel-inner
-				.carousel-item.active
+				.carousel-item.active(id="gridProducts")
 					block itemActive
-				.carousel-item
+				.carousel-item(id="listProducts")
 					block item
 mixin carouselImg()
-	//- - var idImgs = shuffle[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 	- var ids = ["/assets/images/spx2-1.png","/assets/images/spx2-3.png","/assets/images/spx2-2.png","/assets/images/spx2-7.png","/assets/images/spx2-8.png"]
 	- var idCarousel = Math.round(Math.random()*10000)
 	.carousel

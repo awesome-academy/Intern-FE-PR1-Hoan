@@ -71,15 +71,13 @@
             margin: 0 4px;
             height: 40px;
             padding: 0 16px;
-            color: $grey-100;
-            border: 1px solid $white-200;
+            @include btn-white {
+                border-color: $white-200;
+                color: $grey-100;
+            }
             &__number {
                 width: 40px;
                 height: 40px;
-            }
-            &:hover {
-                color: $white-100;
-                background-color: $green-200;
             }
             &:focus {
                 box-shadow: none;
