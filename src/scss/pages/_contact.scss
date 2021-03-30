@@ -1,0 +1,23 @@
+.contact-page {
+	.title {
+		color: $green-100;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 1.125rem;
+	}
+    @include logo($grey-100);
+    .content,
+    .phone,
+    .email {
+		color: $grey-100;
+        line-height: 30px;
+        padding: 8px 64px 8px 0;
+    }
+	button {
+		font-size: .75rem;
+		text-transform: uppercase;
+		padding: 12px 40px;
+		border-radius: 999px;
+		@include btn-green;
+	}
+}
