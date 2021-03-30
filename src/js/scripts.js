@@ -101,6 +101,12 @@ const getProductsPage = async ({ ...data }) => {
         paginationsElements[6].classList.add("disabled");
     }
     if (!(response.headers.link.length === 0)) {
+        paginationsElements[0].classList.remove("disabled");
+        paginationsElements[2].classList.remove("disabled");
+        paginationsElements[2].parentNode.classList.remove("active");
+        paginationsElements[3].classList.remove("disabled");
+        paginationsElements[4].classList.remove("disabled");
+        paginationsElements[6].classList.remove("disabled");
         const responseHeaders = extractPaginationLinks(response.headers.link);
         responseHeaders.map((e) => {
             currentPaginations.push(getPageAndAmount(e[1], options.amount));
@@ -117,8 +123,7 @@ const getProductsPage = async ({ ...data }) => {
 
         // Setting currentPaginations
         paginationsElements[0].href = `/products.html?_p1_a${options.amount}_v${options.view}_sb${options.sort}_fc${options.filterCategory}_fp${options.filterPrice}`;
-        paginationsElements[6].href = `/products.html?_p${lastPage}_a${options.amount}_v${options.view}_fc${options.filterCategory}_fp${options.filterPrice}`;
-
+        paginationsElements[6].href = `/products.html?_p${lastPage}_a${options.amount}_v${options.view}_sb${options.sort}_fc${options.filterCategory}_fp${options.filterPrice}`;
         if (
             currentPaginations.length === 3 &&
             currentPage === 1 &&
@@ -129,8 +134,8 @@ const getProductsPage = async ({ ...data }) => {
             paginationsElements[2].parentNode.classList.add("active");
             setLinkPagination(
                 paginationsElements,
-                currentPaginations[1],
                 3,
+                currentPaginations[1],
                 options.amount,
                 options.view,
                 options.sort,
@@ -330,12 +335,18 @@ const getProductsPage = async ({ ...data }) => {
                         </div>
                     </div>
                     <div class="btn-wrapper">
-                        <button class="btn-buy d-md-inline d-none">MUA NGAY</button>
-                        <button class="btn-buy d-md-none d-inline-block">
-                            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <button class="btn-buy d-md-inline d-none"  onclick="addToCart(${
+                            e.id
+                        })" > <a href="/cart.html">MUA NGAY </a></button>
+                        <button class="btn-buy d-md-none d-inline-block" onclick="addToCart(${
+                            e.id
+                        })">
+                            <a href="/cart.html"><i class="fas fa-shopping-cart" aria-hidden="true"></i></a>
                         </button>
                         <a class="btn-see my-1 center" href="/details-product.html"><i class="fas fa-search" aria-hidden="true"></i></a>
-                        <button class="btn-like my-1" onclick="addCart(${e})">
+                        <button class="btn-like my-1" onclick="addToCart(${
+                            e.id
+                        })">
                             <i class="fas fa-heart" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -360,7 +371,6 @@ if (currentUriPath === "/products.html") {
     const filterByPrice = filterElements[1].getElementsByTagName("a");
     let currentUriSearch = extractPagination(currentUri.search);
     console.log(currentUriSearch);
-
     const sort = {
         sortByPage: currentUriSearch.length === 0 ? 1 : currentUriSearch[0][0],
         sortByAmount:
@@ -480,8 +490,9 @@ if (currentUriPath === "/products.html") {
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 amountProductInCart(cart);
-console.log(localStorage);
+// console.log(localStorage);
 function addToCart(id) {
+    const toastElement = document.getElementById("toasts");
     const cartLength = cart.length;
     const product = {
         id: Number,
@@ -489,14 +500,12 @@ function addToCart(id) {
         price: Number,
         totalPrice: Number,
         quantity: 1,
-        rate: Number,
     };
     const productFinded = products.find((e) => e.id === id);
     product.id = productFinded.id;
     product.name = productFinded.name;
     product.price = productFinded.priceNew;
     product.totalPrice = product.price * product.quantity;
-    product.rate = productFinded.rate;
 
     console.log(cart);
     if (cartLength === 0) {
@@ -504,6 +513,10 @@ function addToCart(id) {
         amountProductInCart(cart);
         localStorage.setItem("cart", JSON.stringify(cart));
         console.log(cart);
+        toastElement.appendChild(toast(product));
+        setTimeout(() => {
+            toastElement.removeChild(toastElement.childNodes[0]);
+        }, 2000);
         return;
     }
     for (let i = 0; i < cartLength; i++) {
@@ -511,6 +524,10 @@ function addToCart(id) {
             cart[i].quantity += 1;
             cart[i].totalPrice = cart[i].price * cart[i].quantity;
             localStorage.setItem("cart", JSON.stringify(cart));
+            toastElement.appendChild(toast(product));
+            setTimeout(() => {
+                toastElement.removeChild(toastElement.childNodes[0]);
+            }, 2000);
             return;
         }
     }
@@ -518,6 +535,10 @@ function addToCart(id) {
     cart.push(product);
     amountProductInCart(cart);
     localStorage.setItem("cart", JSON.stringify(cart));
+    toastElement.appendChild(toast(product));
+    setTimeout(() => {
+        toastElement.removeChild(toastElement.childNodes[0]);
+    }, 2000);
     console.log(cart);
 }
 function amountProductInCart(cart) {
@@ -615,7 +636,7 @@ function removeProductInCartTable(index) {
     localStorage.setItem("cart", JSON.stringify(cart));
     console.log(cart);
     if (cart.length === 0) {
-        removeAllProductInCartTable()
+        removeAllProductInCartTable();
         btnRemoveAll.className = "d-none";
         btnPay.className = "d-none";
     }
@@ -646,6 +667,7 @@ function removeProductInCartTable(index) {
         addProductToCartTable(e, index);
         changeQuantityProductInCartTable(e, index);
     });
+    totalCart();
     amountProductInCart(cart);
 }
 
@@ -684,10 +706,236 @@ function removeAllProductInCartTable() {
 
 function totalCart() {
     const caculatePrice = document.querySelectorAll("#cart-page #total p");
-    let total = 0;
-    total = cart.reduce((acc, cur) => acc + cur.totalPrice, 0);
+    const total = totalPrice(cart);
     const tax = total * 0.1;
     caculatePrice[0].innerText = `${formatPrice(total)} đ`;
     caculatePrice[1].innerText = `${formatPrice(tax)} đ`;
     caculatePrice[2].innerText = `${formatPrice(total + tax)} đ`;
+}
+
+if (currentUriPath === "/checkout.html") {
+    // Define
+    const progressElement = document.getElementById("progress");
+    const emptyCartElement = document.getElementById("empty-cart");
+    const inforInvoiceElement = document.getElementById("information-invoice");
+    const confirmInvoiceElement = document.getElementById("confirm-invoice");
+    const successElement = document.getElementById("success");
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartLength = cart.length;
+    const total = totalPrice(cart);
+
+    // Define information invoice
+    const inputName = document.getElementById("name-infor");
+    const validateName = document.getElementById("name-validate");
+    const inputPhone = document.getElementById("phone-infor");
+    const validatePhone = document.getElementById("phone-validate");
+    const inputAddress = document.getElementById("address-infor");
+    const validateAddress = document.getElementById("address-validate");
+    const inputNote = document.getElementById("note-infor");
+    const inputPayment = document.querySelectorAll("#payment-infor input");
+    const totalPriceInforElement = document.getElementById("total-price-infor");
+
+    // Define confirm information
+    const nameConfirm = document.getElementById("name-confirm");
+    const phoneConfirm = document.getElementById("phone-confirm");
+    const addressConfirm = document.getElementById("address-confirm");
+    const noteConfirm = document.getElementById("note-confirm");
+    const paymentConfirm = document.getElementById("payment-confirm");
+    const productsElement = document.getElementById("products");
+    const totalPriceConfirmElement = document.getElementById(
+        "total-price-confirm"
+    );
+
+    totalPriceInforElement.innerText = `${formatPrice(total)} đ`;
+    const invoice = JSON.parse(localStorage.getItem("invoice")) || {
+        name: "",
+        phone: "",
+        address: "",
+        note: "",
+        payment: "",
+        cart: cart,
+    };
+
+    emptyCartElement.className = "d-none";
+    inforInvoiceElement.className = "d-none";
+    confirmInvoiceElement.className = "d-none";
+    successElement.className = "d-none";
+    if (cartLength === 0) {
+        emptyCartElement.className = "d-block";
+    }
+    if (cartLength !== 0) {
+        console.log(progressElement);
+        progressElement.style = "width: 33%";
+        inforInvoiceElement.className = "d-block";
+    }
+
+    console.log(invoice);
+    if (invoice.name !== "" || invoice.length === 0) {
+        inputName.value = invoice.name;
+        inputPhone.value = invoice.phone;
+        inputAddress.value = invoice.address;
+        inputNote.value = invoice.note;
+        for (let i = 0, length = inputPayment.length; i < length; i++) {
+            if (inputPayment[i].value === invoice.payment) {
+                inputPayment[i].checked = true;
+                break;
+            }
+        }
+    }
+    cart.map((e) => {
+        createProductsChoosesed(e);
+    });
+    inputName.addEventListener("keyup", function () {
+        const regex = /^[^~!@#$%^&*()_+|{}[\]<>:=;,?/.]{6,}$/g;
+        let check = regex.test(this.value);
+        if (!check) {
+            inputName.style = "border-color: red";
+            validateName.style = "opacity: 1";
+            invoice.name = "";
+        }
+        if (check) {
+            inputName.style = "border-color: $white-250";
+            validateName.style = "opacity: 0";
+            invoice.name = this.value;
+        }
+    });
+    inputPhone.addEventListener("keyup", function () {
+        const regex = /^[0-9]{10}$/g;
+        let check = regex.test(this.value);
+        if (!check) {
+            inputPhone.style = "border-color: red";
+            validatePhone.style = "opacity: 1";
+            invoice.phone = "";
+        }
+        if (check) {
+            inputPhone.style = "border-color: $white-250";
+            validatePhone.style = "opacity: 0";
+            invoice.phone = this.value;
+        }
+    });
+    inputAddress.addEventListener("keyup", function () {
+        const regex = /^[^~!@#$%^&*()_+|{}[\]<>:=;?/.]{8,100}$/g;
+        let check = regex.test(this.value);
+        if (!check) {
+            inputAddress.style = "border-color: red";
+            validateAddress.style = "opacity: 1";
+            invoice.address = "";
+        }
+        if (check) {
+            inputAddress.style = "border-color: $white-250";
+            validateAddress.style = "opacity: 0";
+            invoice.address = this.value;
+        }
+    });
+
+    function createProductsChoosesed(product) {
+        const productsChoosesed = document.querySelectorAll(
+            "#invoice-infor ul"
+        );
+        const productElements = document.createElement("li");
+        productElements.className = "d-flex justify-content-between py-2";
+        productElements.innerHTML = `
+            <p>${product.name} <span>x${product.quantity}:</span></p>
+            <p>${formatPrice(product.totalPrice)} đ</p>
+        `;
+        productsChoosesed[0].appendChild(productElements);
+    }
+
+    function submitInformation() {
+        const data = getInformationFromForm(invoice);
+        console.log(data);
+        if (
+            data.name === "" ||
+            data.phone === "" ||
+            data.address === "" ||
+            data.payment === "" ||
+            data.cart.length === 0
+        ) {
+            if (data.name === "") {
+                inputName.style = "border-color: red";
+                validateName.style = "opacity: 1";
+            }
+            if (data.phone === "") {
+                inputPhone.style = "border-color: red";
+                validatePhone.style = "opacity: 1";
+            }
+            if (data.address === "") {
+                inputAddress.style = "border-color: red";
+                validateAddress.style = "opacity: 1";
+            }
+            return;
+        }
+        localStorage.setItem("invoice", JSON.stringify(invoice));
+        console.log(localStorage);
+        inforInvoiceElement.className = "d-none";
+        confirmInvoiceElement.className = "d-block";
+        createInvoice();
+    }
+    function getInformationFromForm(invoice) {
+        invoice.note = inputNote.value;
+        console.log(inputPayment);
+        for (let i = 0; i < inputPayment.length; i++) {
+            if (inputPayment[i].checked) {
+                invoice.payment = inputPayment[i].value;
+                break;
+            }
+        }
+        return invoice;
+    }
+    function goBack() {
+        inforInvoiceElement.className = "d-block";
+        confirmInvoiceElement.className = "d-none";
+    }
+
+    function createInvoice() {
+        nameConfirm.innerText = invoice.name;
+        phoneConfirm.innerText = invoice.phone;
+        addressConfirm.innerText = invoice.address;
+        noteConfirm.innerText = invoice.note;
+        paymentConfirm.innerText = invoice.payment;
+        totalPriceConfirmElement.innerText = `${formatPrice(
+            total + total * 0.1
+        )} đ`;
+        progressElement.style = "width: 66%";
+        document
+            .querySelector(".breadcrumb")
+            .scrollIntoView({ behavior: "smooth" });
+        cart.forEach((e) => {
+            const productElement = document.createElement("div");
+            productElement.className = "d-flex product-invoice";
+            productElement.innerHTML = `
+                <div class="col-4 center py-3">
+                    <p>${e.name}</p>
+                </div>
+                <div class="col-3 center py-3">
+                    <p>${formatPrice(e.price)} đ</p>
+                </div>
+                <div class="col-2 center py-3">
+                    <p>${e.quantity}</p>
+                </div>
+                <div class="col-3 center py-3">
+                    <p>${formatPrice(e.totalPrice)} đ</p>
+                </div>
+            `;
+            productsElement.appendChild(productElement);
+        });
+    }
+
+    function confirmInvoice() {
+        try {
+            postInvoiceSuccessfully(invoice);
+        } catch (err) {}
+        localStorage.clear();
+        confirmInvoiceElement.className = "d-none";
+        successElement.className = "d-block";
+        amountProductInCart([]);
+        progressElement.style = "width: 100%";
+        document
+            .querySelector(".breadcrumb")
+            .scrollIntoView({ behavior: "smooth" });
+    }
+}
+
+function postInvoiceSuccessfully(invoice) {
+    return axios.post(`${baseUrl}/invoices`, invoice);
 }

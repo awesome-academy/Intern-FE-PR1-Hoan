@@ -7,6 +7,10 @@ function formatPrice(price) {
     );
 }
 
+function totalPrice(arr) {
+    return arr.reduce((acc, cur) => acc + cur.totalPrice, 0);
+}
+
 function rate(star) {
     let rate = "";
     for (let i = 1; i <= star; i++) {
@@ -41,9 +45,20 @@ function extractPagination(str) {
     return [...str.matchAll(regex)];
 }
 
-function setLinkPagination(paginationsElements, currentPaginations, page, amount, view, sort, filterCategory, filterPrice) {
+function setLinkPagination(
+    paginationsElements,
+    currentPaginations,
+    page,
+    amount,
+    view,
+    sort,
+    filterCategory,
+    filterPrice
+) {
     paginationsElements[currentPaginations].innerText = page;
-    paginationsElements[currentPaginations].href = `/products.html?_p${page}_a${amount}_v${view}_sb${sort}_fc${filterCategory}_fp${filterPrice}`;
+    paginationsElements[
+        currentPaginations
+    ].href = `/products.html?_p${page}_a${amount}_v${view}_sb${sort}_fc${filterCategory}_fp${filterPrice}`;
 }
 
 function loader() {
@@ -76,4 +91,20 @@ function loader() {
     loading();
     loaderDirect();
     return loader;
+}
+
+function validation(regex, value) {
+    return regex.test(value);
+}
+
+function toast(product) {
+    const toast = document.createElement("div");
+    toast.className = "toast show my-2";
+    toast.innerHTML = `
+        <div class="toast-header">
+            <strong class="me-auto">${product.name}</strong>
+        </div>
+        <div class="toast-body">Đã thêm ${product.name} vào giỏ hàng</div>
+    `;
+    return toast;
 }

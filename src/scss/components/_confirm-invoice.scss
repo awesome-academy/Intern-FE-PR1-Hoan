@@ -1,0 +1,50 @@
+.confirm-invoice{
+    margin-bottom: 3rem;
+    @include logo($grey-100);
+    .invoice {
+        border: 1px solid $white-250;
+    }
+    .order {
+        border: 1px dashed $white-250;
+        font-size: 0.75rem;
+        .label,
+        .product-invoice {
+            div {
+                &:not(:first-child) {
+                    border-left: 1px solid $white-250;
+                }
+            }
+        }
+        .label {
+            color: $dark-300;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .product-invoice {
+            border-top: 1px solid $white-250;
+        }
+        .total {
+            color: $dark-300;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-top: 1px dashed $white-250;
+        }
+    }
+    .btn-submit {
+        button {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            border-radius: 999px;
+            @include btn-green;
+            a {
+                text-decoration: none;
+                color: unset;
+                display: inline-block;
+                padding: 12px 24px;
+            }
+        }
+        .go-back {
+            @include btn-white;
+        }
+    }
+}

@@ -7,10 +7,15 @@ mixin input(label, input, styles)
 				a.forgot Bạn quên mật khẩu ?
 			else 
 				label(class=`${input}-label d-inline-block`)=label
+		else if (input === "radio")
+			input(type=input name=styles id=label)
+			label.px-2(for=label)=label
 		else if (input === "button")
 			button(class=`${styles}-submit`)
 				if (label === "Đăng ký")
 					a(href="/signin.html", class="center")=label
+				else if (label === "Xác nhận")
+					a#submit=label
 				else
 					a(href="/login.html", class="center")=label
 		else

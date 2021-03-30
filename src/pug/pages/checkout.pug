@@ -1,0 +1,29 @@
+extends ../base/base
+include ../components/breadcrumb
+include ../components/progress-bar
+include ../components/empty-cart
+include ../components/information-invoice
+include ../components/confirm-invoice
+include ../components/success
+
+block pages
+	include ../data/data
+	- var breadCrumItems = data.orderInformation.breadCrumItems
+	-
+		var pages = {
+			title: "Checkout",
+			link: "/checkout.html"
+		}
+block layouts
+	section.order-information-page
+		.container
+			.px-3
+				+breadcrumb(breadCrumItems)
+			.px-3
+				+progressBar("information", '33')
+			+emptyCart
+			+informationInvoice
+			+confirmInvoice
+			+success
+
+

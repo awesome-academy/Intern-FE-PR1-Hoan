@@ -1,0 +1,41 @@
+mixin informationInvoice()
+	#information-invoice
+		form.information-invoice.row
+			.col-md-8.px-3.py-4
+				.d-flex
+					.input.w-50
+						label.text-label Họ và tên: 
+							span.asterisk *
+						input.text#name-infor(type="text" name="name")
+						label.py-2#name-validate Độ dài lớn hơn 8 không chứa kí tự đặc biệt
+					.input.w-50
+						label.text-label Số điện thoại: 
+							span.asterisk *
+						input.text#phone-infor(type="text" name="phone")
+						label.py-2#phone-validate Độ dài bằng 10 chỉ chứa số từ 0-9
+				.input
+					label.text-label Địa chỉ: 
+						span.asterisk *
+					input.text#address-infor(type="text" name="address")
+					label.py-2#address-validate Độ dài lớn hơn 8 và không chưa kí tự đặc biệt
+				.input
+					label.textarea-label Ghi chú:
+					textarea#note-infor(rows="8" name="note")
+			.col-md-4.px-3.d-flex.flex-column.justify-content-between.py-4
+				.my-5.mb-0
+					.input.d-flex.py-0#payment-infor
+						input(type="radio" name="payment" id="1" value="Thanh toán trực tiếp" checked)
+						label.px-2(for="1") Thanh toán trực tiếp
+					.input.d-flex.py-0#payment-infor
+						input(type="radio" name="payment" id="2" value="Thanh toán ví điện tử")
+						label.px-2(for="2") Thanh toán ví điện tử
+					.input.d-flex.py-0#payment-infor
+						input(type="radio" name="payment" id="3" value="Thanh toán thẻ ngân hàng")
+						label.px-2(for="3") Thanh toán thẻ ngân hàng
+				.invoice.text-grey-100#invoice-infor
+					ul.mb-0.p-2
+					.d-flex.justify-content-between.p-2
+						p Tổng tiền:
+						p#total-price-infor 0 đ
+			.col-8.px-3.d-flex.justify-content-end
+				input(class="confirm-button" type="button" onclick="submitInformation()", value="Xác nhận")

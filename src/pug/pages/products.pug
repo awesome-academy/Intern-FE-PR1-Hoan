@@ -5,6 +5,7 @@ include ../components/product
 include ../components/pagination
 include ../components/carousel
 include ../components/sort
+include ../components/toast
 
 block pages
 	include ../data/data
@@ -18,6 +19,7 @@ block pages
 		}
 block layouts
 	section.products-page#products-page
+		+toast
 		.container.py-5.pt-0
 			.px-3
 				+breadcrumb(breadCrumItems)
