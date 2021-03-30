@@ -175,7 +175,7 @@
         @include flex(column, space-between, "");
         .title {
             @include title() {
-                font-size: 1.25rem;
+                font-size: 1.125rem;
                 color: $dark-300;
             }
         }
@@ -186,7 +186,7 @@
         }
         .content {
             color: $grey-400;
-            line-height: 20px;
+            line-height: 1.25rem;
             font-size: .75rem;
         }
         .price {
@@ -198,6 +198,102 @@
         .btn-wrapper {
             margin-top: auto;
             @include btn-wrapper();
+            .btn-see,
+            .btn-like {
+                border: 1px solid $white-250;
+                i {
+                    font-size: .75rem;
+                    color: $dark-300;
+                }
+            }
+            .btn-see {
+                &:hover {
+                    background: $green-100;
+                    i {
+                        color: $white-100;
+                    }
+                }
+            }
+            .btn-like {
+                &:hover {
+                    background: $red-100;
+                    i {
+                        color: $white-100;
+                    }
+                }
+            }
+        }
+    }
+}
+.product-details {
+    @include flex("", "", "");
+    &__image {
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__description {
+        padding: 20px 40px;
+        @include flex(column, "", "");
+        .title {
+            @include title() {
+                font-size: 1.125rem;
+                color: $dark-300;
+            }
+        }
+        .rate {
+            padding: 20px 0 !important;
+            @include rate() {
+                font-size: .75rem;
+            }
+        }
+        .price {
+            padding: 8px 0 20px;
+            border-bottom: 1px solid $white-250;
+            @include flex("", "", flex-end);
+            @include price() {
+                &__new {
+                    padding-right: 16px;
+                    font-weight: 600;
+                }
+            }
+        }
+        .content {
+            padding: 20px 0;
+            border-bottom: 1px solid $white-250;
+            color: $grey-400;
+            line-height: 1.25rem;
+            font-size: .75rem;
+        }
+        .quantity {
+            padding: 20px 0;
+            border-bottom: 1px solid $white-250;
+            @include flex("", "", center);
+            p {
+                color: $grey-400;
+                padding-right: 16px;
+            }
+            .decrease,
+            .number,
+            .increase {
+                width: 40px;
+                height: 40px;
+                border: 1px solid $white-250;
+                cursor: pointer;
+            }
+            .number {
+                padding: 0 32px;
+                margin: 0 12px;
+            }
+        }
+        .btn-wrapper {
+            padding: 20px 0 8px;
+            @include btn-wrapper();
+            .btn-buy {
+                margin-bottom: 12px;
+            }
             .btn-see,
             .btn-like {
                 border: 1px solid $white-250;

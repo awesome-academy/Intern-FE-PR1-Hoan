@@ -44,7 +44,7 @@ header.header
 								button.btn-search.icon-text.p-0
 									+icon('fas fa-search')(class='text-grey-300')
 						.col-4
-							.icon-text.text-dark-300.cart.text-end
+							a.icon-text.text-dark-300.cart(href="/cart.html")
 								+icon('fas fa-shopping-basket')(class='text-dark-300')
 								span 0 Sản phẩm
 	.navbar.p-0
@@ -57,8 +57,10 @@ header.header
 						ul.menu
 							each val in menu
 								if (val.dropdown) 
-									li(class = (pages.link === val.link) ? 'menu-item active dropdown' : 'menu-item dropdown')
+									li(class = (pages.link === val.link) ? 'menu-item active dropdown flex-row' : 'menu-item dropdown flex-row')
 										a(href=val.link, class="link dropdown__toggle")=val.title
+										span.d-lg-block.d-none
+											+icon('fas fa-sort-down')(style='padding-left: 8px;padding-bottom: 8px; font-size: 16px', class="text-white-100")
 										ul.dropdown__menu.d-none.d-lg-block
 											li.dropdown__item dropdown 1
 											li.dropdown__item dropdown 2
@@ -75,7 +77,7 @@ header.header
 									button.btn-search.icon-text.p-0
 										+icon('fas fa-search')(class='text-grey-300')
 						li.btn-icon.item
-							+icon('fas fa-shopping-basket')(class="text-white-100")
+							a(href="/cart.html")
+								+icon('fas fa-shopping-basket')(class="text-white-100")
 	if (pages.link === "/")
 		+carousel(carousel)
-
