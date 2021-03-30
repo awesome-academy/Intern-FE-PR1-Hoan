@@ -276,6 +276,9 @@ section {
 .input {
   padding: 20px 20px 20px 0;
   font-size: 12px; }
+  @media (max-width: 767px) {
+    .input {
+      padding: 20px 0; } }
   .input label {
     padding-bottom: 12px; }
   .input input {
@@ -326,8 +329,9 @@ section {
     height: 42px; }
   .input .checkbox-label {
     padding: 0 0 0 10px;
-    font-weight: bold;
-    color: #434343; }
+    font-weight: bold; }
+  .input .asterisk {
+    color: #ed1c24; }
 
 .title {
   padding: 0 12px;
@@ -660,5 +664,18 @@ section {
     padding-bottom: 20px;
     text-transform: uppercase; }
   .login span {
+    font-size: 12px;
+    line-height: 20px; }
+
+.signin {
+  font-family: Arial !important;
+  color: #898989; }
+  .signin p {
+    font-size: 18px;
+    color: #3fb871;
+    font-weight: bold;
+    padding: 40px 0 12px;
+    text-transform: uppercase; }
+  .signin span {
     font-size: 12px;
     line-height: 20px; }
