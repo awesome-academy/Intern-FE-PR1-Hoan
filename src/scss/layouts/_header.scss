@@ -103,11 +103,15 @@
         }
 
         .btn-icon {
-            &:hover {
-                .navbar__search {
-                    transition: all 0.2s ease-in;
-                    width: 100px;
-                    opacity: 1;
+            li {
+                &:first-child {
+                    &:hover {
+                        .navbar__search {
+                            transition: all 0.2s ease-in;
+                            width: 100px;
+                            opacity: 1;
+                        }
+                    }
                 }
             }
         }
