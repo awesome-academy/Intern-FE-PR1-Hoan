@@ -5,7 +5,7 @@ const { src, dest, parallel, watch, series } = require("gulp"),
   browserSync = require("browser-sync").create();
 
 const FilesPath = {
-  sassFiles: "src/scss/**/*.scss",
+  sassFiles: "src/scss/*.scss",
   htmlFiles: "src/pug/pages/*.pug",
 };
 
@@ -30,8 +30,8 @@ function assetsTask() {
 
 function serve() {
   browserSync.init({ server: { baseDir: "./dist" } });
-  watch(FilesPath.sassFiles, sassTask);
-  watch(FilesPath.htmlFiles, htmlTask);
+  watch("src/scss/**/*.scss", sassTask);
+  watch("src/pug/**/*.pug", htmlTask);
 }
 
 exports.sass = sassTask;
