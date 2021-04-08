@@ -71,12 +71,7 @@ $desktop-width: 992;
     }
 }
 
-@mixin list(
-    $w: 40px,
-    $h: 32px,
-    $bhover: $dark-300,
-    $ihover: $grey-300
-) {
+@mixin list($w: 40px, $h: 32px, $bhover: $dark-300, $ihover: $grey-300) {
     .list {
         @include flex("", "", center);
         .item {
@@ -139,9 +134,11 @@ $desktop-width: 992;
         position: relative;
         &__menu {
             @include absolute(100%, "", "", 0);
-            visibility: hidden;
             z-index: 100;
             color: $white-100;
+            transition: all 0.2s ease-in;
+            visibility: hidden;
+            opacity: 0;
         }
         &__item {
             padding: 18px;
@@ -154,7 +151,61 @@ $desktop-width: 992;
         &:hover {
             .dropdown__menu {
                 visibility: visible;
+                opacity: 1;
             }
         }
+    }
+}
+
+@mixin list-wrapper($color: $grey-100, $hovercolor: $white-100) {
+    .list-wrapper {
+        &:last-child {
+            padding-right: 0;
+        }
+        li {
+            color: $color;
+            padding: 8px 0;
+            text-transform: uppercase;
+            font-size: 12px;
+            transition: all 0.2s ease-in;
+            line-height: 20px;
+            i {
+                font-size: 10px;
+            }
+            &:first-child {
+                color: $green-100;
+                font-weight: bold;
+                font-size: 16px;
+                &:hover {
+                    color: $green-100;
+                }
+            }
+            &:hover {
+                color: $hovercolor;
+            }
+        }
+        @content;
+    }
+}
+@mixin btn-green() {
+    background: $green-100;
+    color: $white-100;
+    border: 1px solid $green-100;
+    transition: all 0.2s ease-in;
+    &:hover {
+        color: $green-100;
+        background: $white-100;
+        border: 1px solid $green-100;
+    }
+}
+@mixin btn-white() {
+    color: $green-100;
+    background: $white-100;
+    border: 1px solid $green-100;
+    transition: all 0.2s ease-in;
+    &:hover {
+        background: $green-100;
+        color: $white-100;
+        border: 1px solid $green-100;
     }
 }

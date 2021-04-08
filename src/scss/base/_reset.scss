@@ -146,3 +146,13 @@ textarea {
         outline: none;
     }
 }
+
+body {
+    @include Arial-font;
+}
+img {
+    max-width: 100%;
+}
+section {
+    padding: 2% 0 !important;
+}
