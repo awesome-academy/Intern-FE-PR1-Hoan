@@ -1,0 +1,16 @@
+mixin input(label, input, color)
+	.input
+		if (input === "checkbox")
+			input(type=input, class=input)
+			label(class=`${input}-label`)=label
+			a.forgot Bạn quên mật khẩu ?
+		else if (input === "button")
+			button(class=`${color}-submit`)
+				if (label === "Đăng ký")
+					a(href="/signin.html", class="center")=label
+				else
+					a(href="/login.html", class="center")=label
+		else
+			label(class=`${input}-label`)=label
+			input(type=input, class=input)
+		

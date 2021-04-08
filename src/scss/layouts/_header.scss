@@ -1,37 +1,31 @@
-@import "../base/mixins";
 .header {
     @include Arial-font;
     &__top {
         height: 32px;
-        background: var(--dark-300);
+        background: $dark-300;
 
         @include list;
         li {
-            border-left: 1px solid var(--grey-100);
+            border-left: 1px solid $grey-100;
             &:last-child {
-                border-right: 1px solid var(--grey-100);
+                border-right: 1px solid $grey-100;
             }
         }
 
-        @include link(var(--grey-300), var(--grey-100));
+        @include link($grey-300, $grey-100);
     }
     &__body {
         height: calc(177px - 32px);
-        background: var(--white-100) url(../assets/background/bg-1.png) repeat;
-
-        @include logo(var(--grey-100));
-
+        background: $white-100 url(../assets/background/bg-1.png) repeat;
+        @include logo($grey-100);
         .layer {
             height: 145px;
         }
-
         .contact {
             @include flex("", center, "");
             padding-bottom: 1rem;
         }
-
-        @include search(100%, 40px, 24px, var(--white-100));
-
+        @include search(100%, 40px, 24px, $white-100);
         .cart {
             transform: translateY(350%);
             i {
@@ -41,14 +35,14 @@
     }
     .navbar {
         height: calc(226px - 177px);
-        background: var(--green-100);
+        background: $green-100;
 
         .menu-wrapper {
             @include tablet {
                 position: absolute;
                 left: 0;
                 z-index: 100;
-                background: var(--green-100);
+                background: $green-100;
                 width: 100vw;
                 ul {
                     @include flex(column, center, center);
@@ -67,7 +61,7 @@
                     font-size: 14px;
                     text-transform: uppercase;
                     &:hover {
-                        background: var(--green-300);
+                        background: $green-300;
                     }
                     @include link;
                 }
@@ -81,12 +75,12 @@
                     }
                 }
                 .active {
-                    background: var(--green-300);
+                    background: $green-300;
                 }
             }
         }
 
-        @include list(49px, 100%, var(--green-300), var(--white-100));
+        @include list(49px, 100%, $green-300, $white-100);
         .btn-collapse {
             height: 49px;
             width: 49px;
@@ -101,9 +95,9 @@
             transform: translateY(-50%);
             opacity: 0;
             width: 0;
-            background: var(--green-100);
+            background: $green-100;
             transition: all 0.2s ease-in;
-            @include search(100%, 40px, 0, var(--green-100), -10);
+            @include search(100%, 40px, 0, $green-100, -10);
         }
 
         .btn-icon {
