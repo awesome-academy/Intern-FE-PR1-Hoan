@@ -23,7 +23,7 @@
 				{
 					dropdown: false,
 					title: "Giới thiệu",
-					link: "/about.html"
+					link: ""
 				},
 				{
 					dropdown: true,
@@ -33,7 +33,12 @@
 				{
 					dropdown: true,
 					title: "Sản phẩm mới",
-					link: "/new-products.html"
+					link: ""
+				},
+				{
+					dropdown: false,
+					title: "Tin tức",
+					link: "/news.html"
 				},
 				{
 					dropdown: false,
@@ -43,63 +48,524 @@
 			],
 			carousel: ["/assets/images/slide.png","/assets/images/slide.png","/assets/images/slide.png"]
 		},
-		productsHighlight: {
-			left:[
+		products: {
+			productsHighlight: {
+				left:	[
+					{
+						src: "spx2",
+						name: "Cây chân chim",
+						status: "new",
+						priceNew: "250.000",
+						priceOld: "250.000",
+						rate: "5",
+						size: "large"
+					},
+					{
+						src: "spx2",
+						name: "Cây co ta",
+						status: "",
+						priceNew: "150.000",
+						priceOld: "250.000",
+						rate: "4.5",
+						size: "medium"
+					},
+					{
+						src: "spx2",
+						name: "Cây dứa nhỏ",
+						status: "",
+						priceNew: "375.000",
+						priceOld: "250.000",
+						rate: "3",
+						size: "medium"
+					}
+				],
+				right: [
+					{
+						src: "spx2",
+						name: "Cây dạ lam",
+						status: "-50%",
+						priceNew: "500.000",
+						priceOld: "250.000",
+						rate: "3.5",
+						size: "medium"
+					},
+					{
+						src: "spx2",
+						name: "Cây danh dự",
+						status: "new",
+						priceNew: "850.000",
+						priceOld: "250.000",
+						rate: "4",
+						size: "medium"
+					},
+					{
+						src: "spx2",
+						name: "Cây đa búp đỏ",
+						status: "-50%",
+						priceNew: "1.000.000",
+						priceOld: "250.000",
+						rate: "2.5",
+						size: "large"
+					}
+				]
+			},
+			productsPopular: [
 				{
-					src: "spx2-4",
+					src: "spx2",
 					name: "Cây chân chim",
-					status: "new",
+					status: "",
 					priceNew: "250.000",
-					priceOld: "250.000",
+					priceOld: "",
 					rate: "5",
-					isBig: true
+					size: "small"
 				},
 				{
-					src: "spx2-11",
-					name: "Cây co ta",
+					src: "spx2",
+					name: "Cây Dạ Lam",
 					status: "",
 					priceNew: "150.000",
-					priceOld: "250.000",
+					priceOld: "",
 					rate: "4.5",
-					isBig: false
+					size: "small"
 				},
 				{
-					src: "spx2-6",
+					src: "spx2",
+					name: "Cây danh dự",
+					status: "",
+					priceNew: "450.000",
+					priceOld: "",
+					rate: "3",
+					size: "small"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "",
+					rate: "3",
+					size: "small"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "",
+					rate: "3",
+					size: "small"
+				},
+				{
+					src: "spx2",
 					name: "Cây dứa nhỏ",
 					status: "",
-					priceNew: "375.000",
-					priceOld: "250.000",
+					priceNew: "275.000",
+					priceOld: "",
 					rate: "3",
-					isBig: false
+					size: "small"
 				}
 			],
-			right: [
+			productsSale: [
 				{
-					src: "spx2-5",
-					name: "Cây dạ lam",
-					status: "-50%",
-					priceNew: "500.000",
+					src: "spx2",
+					name: "Cây Danh Dự",
+					status: "-25%",
+					priceNew: "475.000",
 					priceOld: "250.000",
-					rate: "3.5",
-					isBig: false
+					rate: "5",
+					size: "medium"
 				},
 				{
-					src: "spx2-15",
-					name: "Cây danh dự",
-					status: "new",
-					priceNew: "850.000",
-					priceOld: "250.000",
-					rate: "4",
-					isBig: false
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "-10%",
+					priceNew: "150.000",
+					priceOld: "300.000",
+					rate: "4.5",
+					size: "medium"
 				},
 				{
-					src: "spx2-3",
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
 					name: "Cây đa búp đỏ",
-					status: "-50%",
-					priceNew: "1.000.000",
+					status: "",
+					priceNew: "200.000",
 					priceOld: "250.000",
-					rate: "2.5",
-					isBig: true
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "800.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây Danh Dự",
+					status: "-25%",
+					priceNew: "475.000",
+					priceOld: "250.000",
+					rate: "5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "-10%",
+					priceNew: "150.000",
+					priceOld: "200.000",
+					rate: "4.5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "800.000",
+					rate: "3",
+					size: "medium"
+				}
+			],
+			productsNew: [
+				{
+					src: "spx2",
+					name: "Cây Danh Dự",
+					status: "new",
+					priceNew: "475.000",
+					priceOld: "250.000",
+					rate: "5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "new",
+					priceNew: "150.000",
+					priceOld: "300.000",
+					rate: "4.5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "new",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "800.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây Danh Dự",
+					status: "new",
+					priceNew: "475.000",
+					priceOld: "250.000",
+					rate: "5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "150.000",
+					priceOld: "200.000",
+					rate: "4.5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "new",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "800.000",
+					rate: "3",
+					size: "medium"
+				}
+			],
+			productsPage: [
+				//- {
+				//- 	src: "spx2",
+				//- 	name: "Cây Danh Dự",
+				//- 	status: "",
+				//- 	priceNew: "475.000",
+				//- 	priceOld: "250.000",
+				//- 	rate: "5",
+				//- 	size: "medium"
+				//- },
+				//- {
+				//- 	src: "spx2",
+				//- 	name: "Cây dứa nhỏ",
+				//- 	status: "",
+				//- 	priceNew: "150.000",
+				//- 	priceOld: "300.000",
+				//- 	rate: "4.5",
+				//- 	size: "medium"
+				//- },
+				//- {
+				//- 	src: "spx2",
+				//- 	name: "Cây cọ ta",
+				//- 	status: "",
+				//- 	priceNew: "770.000",
+				//- 	priceOld: "250.000",
+				//- 	rate: "3",
+				//- 	size: "medium"
+				//- },
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "800.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây Danh Dự",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "250.000",
+					rate: "5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "150.000",
+					priceOld: "200.000",
+					rate: "4.5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "800.000",
+					rate: "3",
+					size: "medium"
+				}
+			]			
+		},
+		news: {
+			home: [
+				{
+					src: "../assets/images/blog-1.png",
+					title: "15 thiết kế phòng ngủ tuyệt đẹp vạn người mê",
+					content: "Cùng Sài Gòn tìm hiểu một vài xu hướng thiết kế sân vườn được ưa chuộng hiện nay nhé! Kết hợp hàng rào. Cùng Sài Gòn tìm hiểu một vài xu hướng thiết kế sân vườn được ưa chuộng hiện nay nhé! Kết hợp hàng rào Cùng Sài Gòn tìm hiểu một vài xu hướng thiết kế sân vườn được ưa chuộng hiện nay nhé! Kết hợp hàng rào "
+				},
+				{
+					src: "../assets/images/blog-2.png",
+					title: "Tạo tiểu cảnh góc sân nhà phố, biệt thự đẹp",
+					content: "Khi bước từ ngoài ngõ vào hay từ trong nhà đi ra, góc sân luôn là điểm nhìn đầu tiên của chúng ta."
+				},
+				{
+					src: "../assets/images/blog-3.png",
+					title: "Cách bố trí hoa chậu trước cửa ấn tượng",
+					content: "Như thể hiện sự thân thiện cũng như sự hiếu khách của gia chủ, phần không gian trước cửa."
 				}
 			]
 		},
@@ -114,8 +580,38 @@
 			widgetBottom: ["Sitemap", "Danh mục sản phẩm", "Hợp tác", "Thông tin liên hệ", "Câu hỏi thường gặp"],
 			widgetBottomIcons: ["fab fa-cc-visa", "fab fa-cc-mastercard", "fab fa-cc-paypal", "fab fa-cc-discover"]
 		},
-		login: {
-			breadcrumbItems: [["Trang chủ", "/"], ["Đăng nhập", "/login.html"]],
-			inputLogin: [["Email của bạn", "text"], ["Mật khẩu", "password"], ["Ghi nhớ tài khoản", "checkbox"]]
+		loginPage: {
+			breadCrumItems: [["Trang chủ", "/"], ["Đăng nhập", "/login.html"]],
+			inputLogin: [["Email của bạn", "text"], ["Mật khẩu", "password"], ["Ghi nhớ tài khoản", "checkbox", ""]]
+		},
+		signInPage: {
+			breadCrumItems: [["Trang chủ", "/"], ["Đăng Ký", "/signin.html"]],
+			inputSignInOwn: [["Họ và tên ", "text", "asterisk"], ["Số điện thoại ", "text", "asterisk"], ["Đại chỉ email ", "text", "asterisk"], ["Website của bạn ", "text", "asterisk"], ["Đăng ký nhận thông tin qua email", "checkbox", "none"]],
+			inputSignInAccount: [["Mật khẩu ", "text", "asterisk"], ["Nhập lại mật khẩu ", "text", "asterisk"]]
+		},
+		productsPage: {
+			breadCrumItems: [['Home', '/'], ['Danh sách sản phẩm', 'products.html']],
+			soft: [
+				["Danh mục sản phẩm", "Cây châu treo (10)", "Cây có hoa (5)", "Cây dây leo", "Cây để bàn", "Cây may mắn", "Cây trang trí", "Cây nội thất"],
+				["Tìm theo giá", "200.000 Đ - 400.000 Đ", "400.000 Đ - 600.000 Đ", "600.000 Đ - 800.000 Đ", "800.000 Đ - 1000.000 Đ", "1.000.000 Đ - 2.000.000 Đ"],
+				["Tìm theo màu", ["Xanh cây", "green"],["Đỏ cam", "red-orange"],["Tím", "purple"],["Xanh trời", "blue"],["Vàng", "yellow"],["Hồng", "pink"]]
+			]
+		},
+		detailsProductPage: {
+			breadCrumItems: [['Home', '/'], ['Cây dạ lam', 'details-product.html']]
+		},
+		cartPage: {
+			breadCrumItems: [['Home', '/'], ['Giỏ hàng', '/cart.html']]
+		},
+		newsPage: {
+			breadCrumItems: [['Home', '/'], ['Tin tức', '/news.html']],
+			soft: [
+				["Danh mục sản phẩm", "Cây châu treo (10)", "Cây có hoa (5)", "Cây dây leo", "Cây để bàn", "Cây may mắn", "Cây trang trí", "Cây nội thất"],
+				["Tìm theo giá", "200.000 Đ - 400.000 Đ", "400.000 Đ - 600.000 Đ", "600.000 Đ - 800.000 Đ", "800.000 Đ - 1000.000 Đ", "1.000.000 Đ - 2.000.000 Đ"],
+				["Tìm theo màu", ["Xanh cây", "green"],["Đỏ cam", "red-orange"],["Tím", "purple"],["Xanh trời", "blue"],["Vàng", "yellow"],["Hồng", "pink"]]
+			]
+		},
+		detailsNewPage: {
+			breadCrumItems: [['Home', '/'], ['Cây dạ lam', '/details-new.html']]
 		}
 	}
