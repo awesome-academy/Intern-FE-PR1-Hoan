@@ -42,9 +42,28 @@
             }
         }
     }
+    &.images {
+        position: relative;
+        margin: 0;
+        padding-top: 28px;
+        @include reStylesDataBsTarget();
+        [data-bs-target] {
+            margin: 0;
+            padding-left: 2%;
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+        .active {
+            img {
+                border: 1px solid $green-100;
+            }
+        }
+    }
 }
 .pagination {
     flex-wrap: wrap;
+    font-size: .75rem;
     .page-item {
         padding: 8px 0;
         .page-link {
