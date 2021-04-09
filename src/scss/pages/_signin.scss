@@ -2,14 +2,14 @@
     @include Arial-font;
     color: $grey-100;
     p {
-        font-size: 18px;
+        font-size: 1.125rem;
         color: $green-100;
         font-weight: bold;
         padding: 40px 0 12px;
         text-transform: uppercase;
     }
     span {
-        font-size: 12px;
+        font-size: .75rem;
         line-height: 20px;
     }
 }

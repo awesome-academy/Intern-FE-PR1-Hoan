@@ -1,13 +1,15 @@
 @import './base/variables';
 @import './base/mixins';
-@import './base/reset';
 @import './base/global';
+@import './base/reset';
+@import './base/restylesboostrap';
 
 @import './components/breadcrumb';
 @import './components/carousel';
 @import './components/product';
 @import './components/input';
 @import './components/title';
+@import './components/sort';
 @import './components/new';
 
 @import './layouts/footer';
@@ -16,3 +18,4 @@
 @import './pages/index';
 @import './pages/login';
 @import './pages/signin';
+@import './pages/products';

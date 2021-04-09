@@ -29,7 +29,7 @@
             text-decoration: none;
             @include flex("", flex-end, flex-end);
             i {
-                font-size: 24px;
+                font-size: 1.5rem;
             }
             &:hover {
                 color: inherit;
@@ -60,7 +60,7 @@
                     @include flex(column, center, center);
                     cursor: pointer;
                     padding: 10px;
-                    font-size: 14px;
+                    font-size: .875rem;
                     text-transform: uppercase;
                     &:hover {
                         background: $green-300;
@@ -88,7 +88,7 @@
             width: 49px;
             background: transparent;
             i {
-                font-size: 24px;
+                font-size: 1.5rem;
             }
         }
 

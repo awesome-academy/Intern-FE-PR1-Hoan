@@ -1,5 +1,5 @@
 @mixin title() {
-    font-size: 16px;
+    font-size: 1rem;
     padding: 4px 0;
     color: $grey-400;
     margin-bottom: 0;
@@ -13,25 +13,25 @@
 @mixin price() {
     &__new {
         color: $red-200;
-        font-size: 16px;
+        font-size: 1rem;
         padding-right: 8px;
     }
     &__old {
         color: $grey-200;
         text-decoration: line-through;
-        font-size: 12px;
+        font-size: .75rem;
     }
     @content;
 }
 @mixin btn-wrapper() {
     .btn-buy {
         padding: 0 28px;
-        margin-right: 12px;
+        margin-right: 8px;
         border-radius: 999px;
         background: $green-200;
         color: $white-100;
         height: 48px;
-        font-size: 14px;
+        font-size: .875rem;
         line-height: 0;
         border: 1px solid $green-100;
         transition: all 0.2s linear;
@@ -42,7 +42,7 @@
         }
     }
     .btn-see {
-        margin-right: 12px;
+        margin-right: 4px;
         display: inline-flex;
         text-decoration: none;
     }
@@ -80,7 +80,7 @@
             border-radius: 999px;
             color: $white-100;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: .75rem;
             line-height: 0;
             z-index: 100;
         }
@@ -152,7 +152,76 @@
             }
         }
         .rate {
-            font-size: 12px;
+            font-size: .75rem;
+        }
+    }
+}
+
+.product-vertical {
+    @include flex("", "", "");
+    border: 1px solid $white-250;
+    height: 240px;
+    overflow: hidden;
+    &__image {
+        background: $white-250;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__description {
+        padding: 3%;
+        @include flex(column, space-between, "");
+        .title {
+            @include title() {
+                font-size: 1.25rem;
+                color: $dark-300;
+            }
+        }
+        .rate {
+            @include rate() {
+                font-size: .75rem;
+            }
+        }
+        .content {
+            color: $grey-400;
+            line-height: 20px;
+            font-size: .75rem;
+        }
+        .price {
+            margin: auto 0;
+            padding: 8px 0;
+            @include price() {
+            }
+        }
+        .btn-wrapper {
+            margin-top: auto;
+            @include btn-wrapper();
+            .btn-see,
+            .btn-like {
+                border: 1px solid $white-250;
+                i {
+                    font-size: .75rem;
+                    color: $dark-300;
+                }
+            }
+            .btn-see {
+                &:hover {
+                    background: $green-100;
+                    i {
+                        color: $white-100;
+                    }
+                }
+            }
+            .btn-like {
+                &:hover {
+                    background: $red-100;
+                    i {
+                        color: $white-100;
+                    }
+                }
+            }
         }
     }
 }
