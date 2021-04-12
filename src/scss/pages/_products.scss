@@ -1,49 +1,4 @@
 .products-page {
-    &__sort {
-        @include list-wrapper($grey-100, $green-100) {
-            .list-sort-item {
-                text-transform: none;
-                border-bottom: 1px solid $white-250;
-                &:first-child {
-                    border: none;
-                }
-                &.active {
-                    color: $green-100;
-                }
-            }
-            .sort-color {
-                cursor: pointer;
-                text-transform: none;
-                &:not(:first-child) {
-                    @include flex("", "", "");
-                }
-                .color {
-                    width: 24px;
-                    height: 24px;
-                    border-radius: 999px;
-                    margin-right: 8px;
-                }
-                .green {
-                    background: $green-50;
-                }
-                .red-orange {
-                    background: $orange-100;
-                }
-                .purple {
-                    background: $purple-100;
-                }
-                .blue {
-                    background: $blue-100;
-                }
-                .yellow {
-                    background: $yellow-200;
-                }
-                .pink {
-                    background: $pink-100;
-                }
-            }
-        }
-    }
     .sort-bar {
         font-size: .875rem;
         .list {
@@ -70,6 +25,18 @@
             color: $grey-100;
         }
     }
-    .products {
+    .banner__img {
+        width: 100%;
+        overflow: hidden;
+        margin: 0 auto;
+        padding-top: 26.85% !important;
+        position: relative;
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            transform: translate(-50%, -50%);
+        }
     }
 }

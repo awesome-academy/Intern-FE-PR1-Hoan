@@ -13,9 +13,11 @@ mixin sort(sortMethod, isFirst, sortStyle)
 						.p-1
 							span= val
 					else if (sortStyle === "image")
-						div
-							img(src=val[0])
-							div= val[1]
+						a(href="/details-new.html")
+							.d-flex.justify-content-between
+								.img 
+									img(src=val[0])
+								.content.text-ellipsis-2line= val[1]
 					else
 						+icon('fas fa-chevron-right')
 						span= val
