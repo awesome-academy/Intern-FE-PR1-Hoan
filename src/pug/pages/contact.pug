@@ -1,10 +1,38 @@
 extends ../base/base
+include ../components/breadcrumb
+include ../components/logo
+include ../components/input
 
 block pages
-	- 
+	include ../data/data	
+		- var breadCrumItems = data.contactPage.breadCrumItems
+		- var input = data.contactPage.inputInfo
+	-
 		var pages = {
 			title: "Liên hệ",
 			link: "/contact.html"
 		}
 block layouts
-	section
+	section.contact-page
+		.container
+			.px-3
+				+breadcrumb(breadCrumItems)
+		iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.7154990273343!2d108.21780861466338!3d16.080246643414203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142183b8dc2697d%3A0xc105565d68b6ad90!2zMTYgTMO9IFRoxrDhu51uZyBLaeG7h3QsIFRo4bqhY2ggVGhhbmcsIEjhuqNpIENow6J1LCDEkMOgIE7hurVuZyA1NTAwMDAsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1617955180663!5m2!1svi!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy")
+		.container.py-5
+			.row
+				.col-md-6
+					.title.p-0
+						p Thông tin liên hệ
+					each val in input
+						+input(val[0], val[1], val[2])(class="text-grey-100")
+					.p-3.d-flex.justify-content-end
+						button Liên hệ
+				.col-md-6.px-3
+					+logo(class="my-5")
+					p.content.py-4 DKT được thành lập với niềm đam mê và khát vọng thành công trong lĩnh vực Thương mại điện tử.Chúng tôi đã và đang khẳng định được vị trí hàng đầu bằng những sản phẩm.
+					.phone.icon-text
+						+icon('fas fa-mobile-alt')(class="text-green-100")
+						span Điện thoại: (84-4) 66.558.868			
+					.email.icon-text
+						+icon('far fa-envelope')(class="text-green-100")
+						span Email: info@dkt.com.vn

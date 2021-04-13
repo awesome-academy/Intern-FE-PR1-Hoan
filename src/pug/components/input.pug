@@ -1,23 +1,26 @@
 mixin input(label, input, styles)
-	.input
+	.input&attributes(attributes)
 		if (input === "checkbox")
 			input(type=input)
 			if (styles === "")
-				label(class=`${input}-label`)=label
+				label(class=`${input}-label d-inline-block`)=label
 				a.forgot Bạn quên mật khẩu ?
 			else 
-				label(class=`${input}-label`)=label
+				label(class=`${input}-label d-inline-block`)=label
 		else if (input === "button")
 			button(class=`${styles}-submit`)
 				if (label === "Đăng ký")
 					a(href="/signin.html", class="center")=label
 				else
 					a(href="/login.html", class="center")=label
-		else 
+		else
 			if (styles === "asterisk") 
 				label(class=`${input}-label`)=label
 					span(class=styles) *
 			else
 				label(class=`${input}-label`)=label
-			input(type=input, class=input)
+			if (input === "textarea")
+				textarea(rows="8")
+			else
+				input(type=input, class=input)
 		

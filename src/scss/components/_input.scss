@@ -7,11 +7,15 @@
     label {
         padding-bottom: 12px;
     }
-    input {
+    input,  textarea {
         border: 1px solid $white-200;
         color: $grey-100;
         border-radius: 2px;
         font-size: .875rem;
+    }
+    textarea {
+        width: 100%;
+        padding: 8px 2px;
     }
     .forgot {
         cursor: pointer;
