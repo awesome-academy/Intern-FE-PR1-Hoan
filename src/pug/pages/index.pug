@@ -2,6 +2,7 @@ extends ../base/base
 include ../components/carousel
 include ../components/title
 include ../components/new
+include ../components/modal.pug
 
 block pages
 	include ../data/data
@@ -15,6 +16,7 @@ block pages
 			link: "/" 
 		}
 block layouts
+	+modal()
 	include ../layouts/highlight-products.pug
 	section.products__sale
 		.container

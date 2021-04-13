@@ -92,3 +92,56 @@
         }
     }
 }
+
+.modal {
+    .modal-dialog {
+        height: 80vh;
+        .modal-content {
+            background: $white-150;
+            .modal-header {
+                border: none;
+                @include flex("", flex-end, "");
+                i {
+                    cursor: pointer;
+                    color: $green-100;
+                    font-size: 1.25rem;
+                }
+            }
+            .modal-body {
+                @include search(100%, 40px, 0, $green-100, 1, none);
+                .row {
+                    div {
+                        &:last-child {
+                            padding-left: 1rem;
+                            color: $grey-400;
+                            font-size: .75rem;
+                            line-height: 1.25rem;
+                            .title {
+                                font-size: 1.25rem;
+                                color: $green-100;
+                                text-transform: uppercase;
+                                font-weight: bold;
+                                margin: .25rem 0 1.5rem;
+                            }
+                            .input {
+                                @include flex("","",center);
+                                padding: 0;
+                                label {
+                                    font-weight: normal;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.show {
+    background-color: rgba($color: #000000, $alpha: 0.4);
+}
+.modal-backdrop {
+    background-color: rgba($color: #000000, $alpha: 0);
+}
