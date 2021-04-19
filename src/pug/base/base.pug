@@ -14,7 +14,7 @@ html(lang="en")
 		link(rel="stylesheet", href="./css/styles.css")
 	body(class= (pages.link === "/") ? "model-open" : "")
 		include ../partials/header
-		block layouts
+		block layouts	
 		include ../partials/footer
 	script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js",
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN",
@@ -26,4 +26,7 @@ html(lang="en")
 		integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG",
 		crossorigin="anonymous")
 	script(src="https://kit.fontawesome.com/dd5b927364.js", crossorigin="anonymous")
-	block script
+	script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous")
+	script(src="./js/helper.js")
+	script(src="./js/scripts.js")
+	block scripts

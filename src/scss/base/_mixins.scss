@@ -197,6 +197,15 @@ $desktop-width: 992;
         background: $white-100;
         border: 1px solid $green-100;
     }
+    &:disabled {
+        background: $white-200;
+        pointer-events: none;
+        &:hover {
+            border-color: $white-200;
+            color: $grey-100;
+        }
+    }
+    @content;
 }
 @mixin btn-white() {
     color: $green-100;
@@ -208,4 +217,13 @@ $desktop-width: 992;
         color: $white-100;
         border: 1px solid $green-100;
     }
+    &.disabled {
+        background: $white-200;
+        pointer-events: none;
+        &:hover {
+            border-color: $white-200;
+            color: $grey-100;
+        }
+    }
+    @content;
 }
