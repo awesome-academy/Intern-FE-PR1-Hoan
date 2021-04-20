@@ -197,7 +197,7 @@ $desktop-width: 992;
         background: $white-100;
         border: 1px solid $green-100;
     }
-    &:disabled {
+    &.disabled {
         background: $white-200;
         pointer-events: none;
         &:hover {

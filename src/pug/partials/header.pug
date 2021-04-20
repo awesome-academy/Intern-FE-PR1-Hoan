@@ -7,7 +7,7 @@ include ../data/data
 - var menu = data.header.menu
 - var carousel = data.header.carousel
 block pages
-header.header
+header.header#header
 	.header__top.d-md-block.d-none
 		.container.h-100
 			.row.text-grey-100
@@ -44,7 +44,7 @@ header.header
 								button.btn-search.icon-text.p-0
 									+icon('fas fa-search')(class='text-grey-300')
 						.col-4
-							a.icon-text.text-dark-300.cart(href="/cart.html")
+							a.icon-text.text-dark-300.cart#cart(href="/cart.html")
 								+icon('fas fa-shopping-basket')(class='text-dark-300')
 								span 0 Sản phẩm
 	.navbar.p-0
