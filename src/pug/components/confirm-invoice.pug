@@ -1,0 +1,42 @@
+include ../components/logo
+mixin confirmInvoice()
+	#confirm-invoice
+		.px-3.confirm-invoice
+			.row.invoice.my-4.p-3.text-grey-100
+				+logo.my-4.mt-0.col-12
+				.name.col-6.py-3
+					p Tên khách hàng: 
+						span#name-confirm 
+				.phone.col-6.py-3
+					p Số điện thoại: 
+						span#phone-confirm 
+				.address.col-12.py-3
+					p Địa chỉ: 
+						span#address-confirm   
+				.note.col-12.py-3
+					p Ghi chú: 
+						span#note-confirm 
+				.payment.col-12.py-3
+					p Phương thức thanh toán: 
+						span#payment-confirm   
+				.col-12.order.my-3
+					.w-100.d-flex.label
+						.col-4.center.py-3
+							p Tên sản phẩm
+						.col-3.center.py-3
+							p Đơn giá
+						.col-2.center.py-3
+							p Số lượng
+						.col-3.center.py-3
+							p Thành tiền
+					.w-100#products
+					.w-100.d-flex.total.py-3.px-5.justify-content-end
+						p Tổng tiền 
+							span(style="text-transform: none; font-weight: 100") (đã bao gồm thuế VAT)
+							| : 
+							span#total-price-confirm 0 đ
+			.d-flex.justify-content-end.btn-submit
+				button.mx-3.go-back(onclick="goBack()")
+					a Quay lại
+				button(onclick="confirmInvoice()")
+					a Xác nhận

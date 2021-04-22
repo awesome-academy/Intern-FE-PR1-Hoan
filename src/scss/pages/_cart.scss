@@ -95,11 +95,16 @@
         }
         button {
             @include btn-green;
-            padding: 12px 24px;
             border-radius: 999px;
             line-height: 1.25rem;
             font-size: .75rem;
             text-transform: uppercase;
+            a {
+                color: unset;
+                text-decoration: none;
+                display: inline-block;
+                padding: 12px 24px;
+            }
         }
     }
 }

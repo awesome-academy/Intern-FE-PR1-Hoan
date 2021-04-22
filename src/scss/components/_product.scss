@@ -222,6 +222,13 @@
                     }
                 }
             }
+            .btn-buy {
+                @include btn-green;
+                a {
+                    color: unset;
+                    text-decoration: none;
+                }
+            }
         }
     }
 }
